@@ -91,7 +91,7 @@ logger = logging.getLogger("robo_londrina")
 URL_PARA_LOGIN_MANUAL = "https://portal.londrina.pr.gov.br/nfse-inicio"
 CAMINHO_PAGINA_INICIAL_ISS = "/app/r/fazenda_front/app-front-iss/principal"
 LIMITE_DIAS_POR_CONSULTA = 60  # confirmado neste portal (Nacional era 30)
-PADRAO_CODIGO_PASTA = re.compile(r"^\s*(\d+)\s*-\s*(.+)$")  # aceita "1-ON4" e "1 - ON4"
+PADRAO_CODIGO_PASTA = re.compile(r"^\s*(\d+)\s*-\s*(.+)$")  # aceita "1-EMPRESA" e "1 - EMPRESA"
 
 TIMEOUT_ESPERA_CAPTCHA_LOGIN_SEGUNDOS = 300  # 5 min — etapa manual maior agora (clique + captcha)
 PAUSA_ENTRE_CLIENTES_SEGUNDOS = 12  # aumentado de 10 → 12 (05/08/2026): dá mais fôlego entre empresas

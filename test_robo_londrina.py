@@ -277,10 +277,10 @@ class TesteProcessamento(unittest.TestCase):
     def test_relatorio_reusa_pasta_existente_do_cliente(self) -> None:
         with tempfile.TemporaryDirectory() as temporaria:
             raiz = Path(temporaria)
-            pasta_existente = raiz / "1-ON4"
+            pasta_existente = raiz / "1-PADARIA DO EXEMPLO"
             pasta_existente.mkdir()
             cliente = ClienteLondrina("1", "99900001000150", "PADARIA DO EXEMPLO", "")
-            mapa = {"1": PastaDominio("1", "1-ON4", pasta_existente)}
+            mapa = {"1": PastaDominio("1", "1-PADARIA DO EXEMPLO", pasta_existente)}
 
             resultado = obter_pasta_competencia_relatorio(cliente, mapa, raiz, "072026")
 
