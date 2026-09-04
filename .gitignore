@@ -1,0 +1,40 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+
+# --- Ambiente e segredos ---
+.env
+.env.local
+.env.*.local
+*.pfx
+*.p12
+*.pem
+*.key
+senha*.txt
+
+# --- Sistema e editor ---
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# --- Dado real do escritorio ---
+# O cadastro de verdade nunca entra: use clientes_londrina.exemplo.csv
+# como modelo e mantenha o seu fora do controle de versao.
+clientes_londrina.csv
+pendencias_*.csv
+teste_geral_*.txt
+*.xlsx
+*.xls
+# ... menos o modelo em branco, que o codigo copia na primeira execucao.
+# Ele tem so o cabecalho e a formatacao — nenhuma empresa dentro.
+!PLANILHA RELATORIO MENSAL.xlsx
+diagnosticos_falha/
+_tmp_downloads_londrina/
+backup_antes_*/

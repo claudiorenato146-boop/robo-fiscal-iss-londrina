@@ -1,0 +1,5 @@
+playwright>=1.61,<2
+python-dotenv>=1.0,<2
+cryptography>=45,<50
+openpyxl>=3.1,<4
+

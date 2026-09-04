@@ -1,0 +1,39 @@
+ROBÔ FISCAL 2.2
+Data: 02/09/2026
+
+NOVIDADE DESTA VERSÃO (02/09/2026):
+- Quando existir mais de uma pasta com o mesmo código, o robô passa a usar
+  automaticamente a pasta cujo nome corresponde à coluna pasta_dominio do
+  clientes_londrina.csv. Se o CSV não indicar uma única opção, continua
+  registrando pendência em vez de gravar no lugar errado.
+
+NOVIDADES DESTA VERSÃO (05/08/2026):
+- NOVO comando --codigos "545.582.548.547": roda só as empresas escolhidas
+  (separadas por ponto, vírgula ou espaço). Atalho: RODAR_EMPRESAS_SELECIONADAS.bat.
+- NOVO comando --teste-geral: modo diagnóstico que passa por todas as empresas
+  SEM baixar XML e SEM mexer na planilha, e gera um relatório TXT com o perfil
+  de cada uma (OK / SEM ACESSO / ERRO NA ABA / ERRO / NÃO TESTADO).
+  Atalho: TESTE_GERAL.bat. Serve para achar de uma vez quem está sem procuração.
+- Sessão do gov.br caindo no meio da rodada agora é DETECTADA: o robô PARA na
+  hora em vez de falhar centenas de empresas em cascata. As empresas não
+  processadas NÃO recebem ERRO na planilha — ficam "Aguardando" e entram só nas
+  pendências, para relogar e retomar só elas.
+- Empresa SEM MOVIMENTO nunca mais vira ERRO: quando a tela confirma que não há
+  nota no período, marca "X" (sem movimento), não "ERRO". "Erro é só erro mesmo."
+- Troca de empresa mais robusta (era o ponto que mais dava erro): depois de setar
+  o CNPJ, o robô ESPERA o nome do contribuinte aparecer de verdade (até 45s) e
+  re-tenta a seleção até 3 vezes com pausa crescente, em vez de seguir cedo demais.
+- Rede de segurança para "recebidas vazia": como o escritório emite nota para
+  quase todos, se recebidas vier vazia o robô reconfere a aba mais uma vez antes
+  de aceitar o vazio (sem marcar erro).
+- Pausa entre empresas aumentada de 10s para 12s.
+
+BASE (herdado da 2.0):
+- Cadastro consolidado: 332 clientes.
+- ZIP válido com XML = OK. ZIP válido sem XML = X. ZIP ausente/inválido = ERRO.
+- Emitidas/prestados e recebidas/tomados processados separadamente.
+- Planilha única PLANILHA RELATORIO MENSAL.xlsx, uma aba por competência,
+  salva após cada empresa.
+- Retomada somente das pendências técnicas; reaproveitamento de ZIP já existente.
+- Esperas reforçadas para portal lento: 2 min por etapa, 5 min por download,
+  4 tentativas de navegação/calendário.

@@ -1,0 +1,50 @@
+ROBÔ FISCAL 2.0 — PASSO A PASSO
+
+PRIMEIRA VEZ NESTE COMPUTADOR:
+1. Abra o CMD nesta pasta.
+2. Digite: INSTALAR.bat
+
+TODO MÊS (execução completa):
+1. Digite: INICIAR_CHROME_ISS.bat
+2. Faça o login manual e deixe aberta a tela inicial de contribuintes.
+3. Digite: EXECUTAR_ROBO.bat
+4. Informe a competência, por exemplo: 07.2026
+
+PARA RODAR SÓ ALGUMAS EMPRESAS (NOVO):
+1. Abra e faça login no Chrome especial.
+2. Digite: RODAR_EMPRESAS_SELECIONADAS.bat
+3. Informe os códigos separados por PONTO, por exemplo: 545.582.548.547
+   (aceita também vírgula ou espaço). Só essas empresas serão baixadas.
+
+TESTE GERAL / DIAGNÓSTICO — SEM BAIXAR XML (NOVO):
+1. Abra e faça login no Chrome especial.
+2. Digite: TESTE_GERAL.bat
+3. Ele passa por TODAS as empresas só para ver o perfil de cada uma
+   (se seleciona, se abre as abas, se falta procuração etc.), NÃO baixa
+   nenhum XML e NÃO mexe na planilha. No fim, gera um relatório TXT nesta
+   pasta chamado teste_geral_AAAAMMDD_HHMMSS.txt.
+   Perfis do relatório:
+     OK          = seleciona e as abas Emitidas/Recebidas abrem.
+     SEM ACESSO  = não apareceu na lista — verifique a PROCURAÇÃO no portal.
+     ERRO NA ABA = seleciona, mas uma aba travou (glitch do portal).
+     ERRO        = falha inesperada.
+     NÃO TESTADO = a sessão do gov.br caiu antes de chegar nessa empresa.
+
+PARA RODAR SOMENTE QUEM FALHOU:
+1. Abra e faça login no Chrome especial.
+2. Digite: RETOMAR_PENDENCIAS.bat
+3. Informe a competência sem ponto, por exemplo: 072026
+
+LEGENDA DA PLANILHA:
+OK   = o ZIP contém XML.
+X    = ZIP válido sem XML; cliente SEM MOVIMENTO nesse tipo (NÃO é erro).
+ERRO = pendência técnica de verdade que precisa ser reprocessada.
+  (A partir de 05/08/2026: empresa sem movimento nunca mais vira ERRO.)
+
+SE A SESSÃO DO GOV.BR CAIR NO MEIO (NOVO):
+O robô agora PARA na hora em vez de falhar todas as empresas seguintes.
+As que faltaram NÃO recebem ERRO na planilha (ficam "Aguardando"). É só
+relogar no Chrome e usar RETOMAR_PENDENCIAS.bat para pegar o que faltou.
+
+IMPORTANTE: mantenha a planilha de controle fechada durante a execução.
+Ela se chama PLANILHA RELATORIO MENSAL.xlsx e recebe uma aba nova por competência.
